@@ -49,13 +49,14 @@ func main() {
 			fmt.Printf("Failed to parse HCL: %s\n", diags.Error())
 			return nil
 		}
-		removeBlocks(hclFile.Body())
+		if removeBlocks(hclFile.Body()) {
+			fmt.Println(path)
+		}
 		err = os.WriteFile(path, hclFile.Bytes(), 0644)
 		if err != nil {
 			fmt.Printf("Failed to write file: %s\n", err)
 			return nil
 		}
-		fmt.Println(path)
 		return nil
 	})
 	if err != nil {
@@ -64,11 +65,13 @@ func main() {
 	}
 }
 
-func removeBlocks(body *hclwrite.Body) {
+func removeBlocks(body *hclwrite.Body) bool {
+	updated := false
 	for _, block := range body.Blocks() {
 		switch block.Type() {
 		case "moved", "import", "removed":
-			body.RemoveBlock(block)
+			updated = body.RemoveBlock(block)
 		}
 	}
+	return updated
 }
