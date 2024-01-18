@@ -1,6 +1,6 @@
 # tfhk
 
-Utility tools to blocks for refactoring such as moved block
+Utility tools to remove blocks for refactoring such as moved block
 
 # Usage
 
