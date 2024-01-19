@@ -11,6 +11,10 @@ Supports deletion of the following blocks.
 # Usage
 
 ```
+go install github.com/shmokmt/tfhk/cmd/tfhk@latest
+```
+
+```
 Usage: tfhk [-recursive] [target]
   -recursive
         Also process files in subdirectories. By default, only the given directroy (or current directroy) is processed.
