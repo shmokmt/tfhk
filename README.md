@@ -1,6 +1,12 @@
 # tfhk
 
-Utility tools to remove blocks for refactoring such as moved block
+The utility tool to remove blocks for refactoring such as moved block.
+
+Supports deletion of the following blocks.
+
+- moved block
+- import block
+- removed block
 
 # Usage
 
