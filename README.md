@@ -1,5 +1,8 @@
 # tfhk
 
+[![Go](https://github.com/shmokmt/tfhk/actions/workflows/go.yml/badge.svg)](https://github.com/shmokmt/tfhk/actions/workflows/go.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/shmokmt/tfhk.svg)](https://pkg.go.dev/github.com/shmokmt/tfhk)
+
 The utility tool to remove blocks for refactoring such as moved blocks.
 
 Supports deletion of the following blocks.
