@@ -49,7 +49,7 @@ func main() {
 			fmt.Printf("Failed to parse HCL: %s\n", diags.Error())
 			return nil
 		}
-		if removeBlocks(hclFile.Body()) {
+		if RemoveBlocks(hclFile.Body()) {
 			fmt.Println(path)
 		}
 		err = os.WriteFile(path, hclFile.Bytes(), 0644)
@@ -65,7 +65,7 @@ func main() {
 	}
 }
 
-func removeBlocks(body *hclwrite.Body) bool {
+func RemoveBlocks(body *hclwrite.Body) bool {
 	updated := false
 	for _, block := range body.Blocks() {
 		switch block.Type() {
