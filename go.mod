@@ -1,6 +1,6 @@
 module github.com/shmokmt/tfhk
 
-go 1.21.6
+go 1.22.4
 
 require github.com/hashicorp/hcl/v2 v2.19.1
 
