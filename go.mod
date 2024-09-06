@@ -2,7 +2,7 @@ module github.com/shmokmt/tfhk
 
 go 1.22.4
 
-require github.com/hashicorp/hcl/v2 v2.21.0
+require github.com/hashicorp/hcl/v2 v2.22.0
 
 require (
 	github.com/agext/levenshtein v1.2.1 // indirect
