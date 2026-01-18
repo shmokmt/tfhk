@@ -50,12 +50,22 @@ func main() {
 			return nil
 		}
 		if RemoveBlocks(hclFile.Body()) {
+			// Delete the file if content is empty or whitespace only
+			if isFileContentEmpty(hclFile.Bytes()) {
+				err = os.Remove(path)
+				if err != nil {
+					fmt.Printf("Failed to delete file: %s\n", err)
+					return nil
+				}
+				fmt.Printf("%s (deleted)\n", path)
+				return nil
+			}
 			fmt.Println(path)
-		}
-		err = os.WriteFile(path, hclFile.Bytes(), 0644)
-		if err != nil {
-			fmt.Printf("Failed to write file: %s\n", err)
-			return nil
+			err = os.WriteFile(path, hclFile.Bytes(), 0644)
+			if err != nil {
+				fmt.Printf("Failed to write file: %s\n", err)
+				return nil
+			}
 		}
 		return nil
 	})
@@ -74,4 +84,8 @@ func RemoveBlocks(body *hclwrite.Body) bool {
 		}
 	}
 	return updated
+}
+
+func isFileContentEmpty(content []byte) bool {
+	return len(strings.TrimSpace(string(content))) == 0
 }
