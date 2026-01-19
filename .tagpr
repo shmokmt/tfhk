@@ -1,0 +1,10 @@
+# config file for the tagpr in git config format
+# The tagpr generates a pull request for the next version with semver
+# https://github.com/Songmu/tagpr
+
+[tagpr]
+	vPrefix = true
+	releaseBranch = main
+	changelog = true
+	command = tfhk
+	release = true
