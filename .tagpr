@@ -8,3 +8,4 @@
 	changelog = true
 	command = tfhk
 	release = true
+	versionFile = -
